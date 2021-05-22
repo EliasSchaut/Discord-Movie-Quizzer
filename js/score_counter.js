@@ -1,4 +1,3 @@
-
 const score = {
     "Karlsruhe": 0,
     "Mannheim": 0

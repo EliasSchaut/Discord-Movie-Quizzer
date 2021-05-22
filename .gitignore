@@ -109,5 +109,5 @@ dist
 # config
 /config/config.json
 
-# videos
-wwwroot/res
+# resources
+config/video

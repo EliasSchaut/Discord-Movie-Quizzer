@@ -9,7 +9,13 @@ start.addEventListener("click", async function () {
     start.children[2].setAttribute("class", "spinner-grow spinner-grow-sm visible")
     const progress_index = await get_progress()
     console.log("Progress Index: " + progress_index)
+    init(progress_index)
 
-    
+
 
 })
+
+
+function init(progress_index) {
+
+}
