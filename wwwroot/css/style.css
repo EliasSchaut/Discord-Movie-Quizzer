@@ -1,0 +1,61 @@
+/* ----------------------
+    General
+-----------------------*/
+body {
+    background-color: grey;
+    text-align: center;
+
+}
+/* ------------------- */
+
+
+/* ----------------------
+    Video
+-----------------------*/
+#video-container {
+    display: none;
+    margin: 20px;
+}
+
+#video {
+    width: 70vw;
+}
+
+#video-solution {
+
+}
+/* ------------------- */
+
+
+/* ----------------------
+    Start
+-----------------------*/
+#start-container {
+
+}
+
+#start-button {
+
+}
+
+#spinner {
+    display: none;
+}
+/* ------------------- */
+
+
+/* ----------------------
+    Test
+-----------------------*/
+#test-container {
+    display: none;
+}
+
+#post {
+
+}
+
+#get {
+
+}
+/* ------------------- */
