@@ -85,3 +85,6 @@ client.on('message', message => {
 
 // login to Discord with app's token
 client.login(config.token);
+
+// start Webserver
+require("./app.js");
