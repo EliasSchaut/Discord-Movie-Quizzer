@@ -7,10 +7,9 @@ start.addEventListener("click", async function () {
     start.children[0].setAttribute("class", "visually-hidden")
     start.children[1].setAttribute("class", "visible")
     start.children[2].setAttribute("class", "spinner-grow spinner-grow-sm visible")
-    const progress = await get_progress()
-    console.log("Progress: " + progress)
+    const progress_index = await get_progress()
+    console.log("Progress Index: " + progress_index)
 
-
-
+    
 
 })
