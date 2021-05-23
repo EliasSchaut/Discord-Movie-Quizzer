@@ -12,6 +12,7 @@ start.addEventListener("click", function () {
     set_visuals_off()
     if(!set_next_video()) {
         end_quiz()
+        post_end()
         return
     }
     set_visuals_on()
