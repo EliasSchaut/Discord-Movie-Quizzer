@@ -110,4 +110,4 @@ dist
 /config/config.json
 
 # resources
-config/video
+wwwroot/res/video

@@ -1,6 +1,5 @@
 const express = require('express')
 const cecho = require("./commands/test/cecho.js")
-const { progress } = require("./config/config.json")
 const app = express()
 const port = 8080;
 app.use(express.static('wwwroot'))
@@ -20,9 +19,9 @@ app.get('/GET/', function (req, res) {
     res.send("GET received")
 })
 
-// get progress
-app.get('/GET/progress', function (req, res) {
-    res.send(progress)
+// get next_video
+app.get('/GET/next-video/', function (req, res) {
+    res.send(video.get_next_video_path())
 })
 
 // get cecho

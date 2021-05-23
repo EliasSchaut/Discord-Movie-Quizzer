@@ -4,7 +4,10 @@
 body {
     background-color: grey;
     text-align: center;
+}
 
+#start-button {
+    margin-top: 3vh;
 }
 /* ------------------- */
 
@@ -13,7 +16,6 @@ body {
     Video
 -----------------------*/
 #video-container {
-    display: none;
     margin: 20px;
 }
 
@@ -22,7 +24,8 @@ body {
 }
 
 #video-solution {
-
+    color: white;
+    font-size: xx-large;
 }
 /* ------------------- */
 
@@ -48,7 +51,7 @@ body {
     Test
 -----------------------*/
 #test-container {
-    display: none;
+
 }
 
 #post {
