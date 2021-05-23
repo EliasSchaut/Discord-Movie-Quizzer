@@ -37,7 +37,7 @@ app.get('/GET/cecho/', function (req, res) {
 // GET guessed-user
 app.get('/GET/guessed-user/', function (req, res) {
     if (guessing.guessed) {
-        res.send(` (${guessing.guessed_user} aus dem Team ${guessing.guessed_team})`)
+        res.send(` (guessed by ${guessing.guessed_user} from team ${guessing.guessed_team})`)
     } else {
         res.send("")
     }

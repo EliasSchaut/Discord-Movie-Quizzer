@@ -26,7 +26,6 @@ function get_guessed_user() {
     http.open("GET", href + "GET/guessed-user")
     http.onreadystatechange = function () {
         if (http.readyState === 4) {
-            console.log(http.responseText)
             if (http.responseText !== "") {
                 guessed = true
                 show_solution(http.responseText)
