@@ -25,7 +25,7 @@ function get_next_video_path() {
     videos.progress++
     if (videos.progress >= videos.num_of_files) return -2
     if (videos.progress < 0) return -1;
-    post_progress(get_sol())
+    post_solution(get_sol())
 
     return get_video_path()
 }

@@ -38,7 +38,7 @@ app.get('/GET/cecho/', function (req, res) {
 
 
 // -----------------------------------
-// Post
+// POST
 // -----------------------------------
 
 // post received
@@ -46,11 +46,18 @@ app.post('/POST/', function(req, res) {
     res.send("POST received")
 })
 
-// post progress
-app.post('/POST/progress/', function (req, res ) {
+// post solution
+app.post('/POST/solution/', function (req, res ) {
     guessing.solution = req.body.solution
     guessing.guessed = false
+    guessing.fail = false
     console.log("POST solution: " + req.body.solution)
+})
+
+// post fail
+app.post('/POST/fail/', function (req, res ) {
+    guessing.fail = true
+    console.log("POST Fail!")
 })
 
 // post start

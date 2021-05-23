@@ -1,6 +1,7 @@
 {
-  "started": true,
+  "started": false,
   "ended": false,
   "guessed": true,
+  "fail": false,
   "solution": ""
 }

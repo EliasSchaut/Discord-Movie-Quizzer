@@ -3,16 +3,21 @@ const video_c = document.getElementById("video-container")
 const video_e = document.getElementById("video")
 const video_sol = document.getElementById("video-solution")
 const sol = "Solution: "
+let first_time = true
 
 
 // -------------------------------------
 // EventListener
 // -------------------------------------
 start.addEventListener("click", function () {
+    if (first_time) {
+        post_start()
+        first_time = false
+    }
+
     set_visuals_off()
     if(!set_next_video()) {
         end_quiz()
-        post_end()
         return
     }
     set_visuals_on()
@@ -20,7 +25,7 @@ start.addEventListener("click", function () {
 })
 
 video_e.addEventListener("ended", function () {
-    // TODO: POST
+    post_fail()
     show_solution()
     set_next_round_button()
 })
@@ -79,6 +84,7 @@ let set_next_round_button = function () {
 }
 
 let end_quiz = function () {
+    post_end()
     start.children[0].innerHTML = "Quiz Ended"
     start.children[0].setAttribute("class", "visible")
     start.children[1].setAttribute("class", "visually-hidden")

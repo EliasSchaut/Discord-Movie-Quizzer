@@ -13,17 +13,20 @@ module.exports = {
     dmOnly: false,
     restricted: false,
     execute(message, args) {
-        // TODO: THREAD and TYPO
+        // TODO: THREAD_LOCK
 
         // Fail Cases
         if (!guessing.started) {
-            return message.reply("Game haven't started jet!")
+            return message.reply(":x: Game haven't started jet!")
         }
         if (guessing.ended) {
-            return message.reply("Game has ended!")
+            return message.reply(":x: Game has ended!")
         }
         if (guessing.guessed) {
-            return message.reply("The correct answer was already given!")
+            return message.reply(":x: The correct answer was already given!")
+        }
+        if (guessing.fail) {
+            return message.reply(":x: The correct answer was already shown. This round every team failed!")
         }
 
         // check answer
@@ -34,19 +37,19 @@ module.exports = {
 
             if (member.roles.cache.has(role_ids.Mannheim)) {
                 score.add_point("Mannheim")
-                return message.reply("Yes, you guessed it and gave Mannheim a point!!!")
+                return message.reply(":white_check_mark: Yes, you guessed it and gave Mannheim a point!!!")
 
             } else if (member.roles.cache.has(role_ids.Karlsruhe)) {
                 score.add_point("Karlsruhe")
-                return message.reply("Yes, you guessed it and gave Karlsruhe a point!!!")
+                return message.reply(":white_check_mark: Yes, you guessed it and gave Karlsruhe a point!!!")
 
             } else {
                 guessing.guessed = false;
-                return message.reply("Ups, you don't have a team!")
+                return message.reply(":x: Ups, you don't have a team!")
             }
 
         } else {
-            message.reply("Unfortunately wrong!")
+            message.reply(":x: Unfortunately wrong!")
         }
 
 

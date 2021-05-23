@@ -7,10 +7,10 @@ module.exports = {
     args_min_length: 1,
     guildOnly: false,
     dmOnly: false,
-    restricted: false,
+    restricted: true,
     to_send: "",
     execute(message, args) {
-        this.to_send = args[0];
+        this.to_send = args.join(" ");
         console.log(args);
     },
 };

@@ -39,13 +39,22 @@ post.addEventListener("click", function() {
     http.send()
 })
 
-// POST progress
-function post_progress(solution) {
+// POST solution
+function post_solution(solution) {
     const http = new XMLHttpRequest()
-    http.open("POST", href + "POST/progress", true)
+    http.open("POST", href + "POST/solution", true)
     http.setRequestHeader('Content-Type', 'application/json')
     http.send(JSON.stringify({solution: solution}))
 }
+
+
+// POST fail
+function post_fail() {
+    const http = new XMLHttpRequest()
+    http.open("POST", href + "POST/fail", true)
+    http.send()
+}
+
 
 // POST start
 function post_start() {
