@@ -1,4 +1,5 @@
-const { role_ids, guessing } = require('../../config/config.json')
+const { role_ids } = require('../../config/config.json')
+const guessing = require('../../js/guessing.json')
 const score = require('../../js/score_counter.js')
 
 module.exports = {

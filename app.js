@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cecho = require("./commands/test/cecho.js")
-const config = require('./config/config.json').guessing
+const guessing = require('./js/guessing.json')
 const score = require("./js/score_counter")
 const app = express()
 const port = 8080;
@@ -48,29 +48,29 @@ app.post('/POST/', function(req, res) {
 
 // post progress
 app.post('/POST/progress/', function (req, res ) {
-    config.solution = req.body.solution
-    config.guessed = false
+    guessing.solution = req.body.solution
+    guessing.guessed = false
     console.log("POST solution: " + req.body.solution)
 })
 
 // post start
 app.post('/POST/start/', function (req, res ) {
-    config.started = true
+    guessing.started = true
     console.log("POST Start")
 })
 
 // post end
 app.post('/POST/end/', function (req, res ) {
-    config.ended = true
+    guessing.ended = true
     console.log("POST End!")
 })
 
 // post reset
 app.post('/POST/reset/', function (req, res ) {
-    config.started = false
-    config.ended = false
-    config.solution = ""
-    config.guessed = true
+    guessing.started = false
+    guessing.ended = false
+    guessing.solution = ""
+    guessing.guessed = true
     score.reset()
     console.log("POST Reset!")
 })
