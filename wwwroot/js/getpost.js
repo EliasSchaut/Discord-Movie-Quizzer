@@ -19,19 +19,6 @@ get.addEventListener("click", function() {
     }
     http.send()
 })
-
-// GET next-video
-function get_next_video() {
-    const http = new XMLHttpRequest()
-    http.open("GET", href + "GET/next-video")
-    http.onreadystatechange = function () {
-        if (http.readyState === 4) {
-            http.responseText
-        }
-    }
-    http.send()
-
-}
 // -------------------------------------
 
 
@@ -51,6 +38,14 @@ post.addEventListener("click", function() {
     }
     http.send()
 })
+
+// POST progress
+function post_progress(solution) {
+    const http = new XMLHttpRequest()
+    http.open("POST", href + "POST/progress", true)
+    http.setRequestHeader('Content-Type', 'application/json')
+    http.send(JSON.stringify({solution: solution}))
+}
 // -------------------------------------
 
 

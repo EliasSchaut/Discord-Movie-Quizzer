@@ -8,31 +8,38 @@ module.exports = {
     args: true,
     usage: "[text]",
     args_min_length: 1,
-    guildOnly: false,
+    guildOnly: true,
     dmOnly: false,
     restricted: false,
     execute(message, args) {
         // TODO: THREAD and TYPO
+        if (guessing.solution === "") {
+            return message.reply("Game haven't started jet!")
+        }
+
         if (guessing.guessed) {
-            return message.reply("The correct answer was already given")
+            return message.reply("The correct answer was already given!")
         }
 
         if (args[0].toLowerCase() === guessing.solution.toLowerCase()) {
             guessing.guessed = true;
-            const member = message.guild.members.cache.get(message.author.id);
+            const member = message.guild.members.cache.get(message.author.id)
 
-            const role_mannheim = message.guild.roles.cache.get(role_ids.Mannheim)
-            const role_karlsruhe = message.guild.roles.cache.get(role_ids.Karlsruhe)
-            if (role_mannheim in member.roles.cache) {
+            if (member.roles.cache.has(role_ids.Mannheim)) {
                 score.add_point("Mannheim")
+                return message.reply("Yes, you guessed it and gave Mannheim a point!!!")
 
-            } else if (role_karlsruhe in member.roles.cache) {
+            } else if (member.roles.cache.has(role_ids.Karlsruhe)) {
                 score.add_point("Karlsruhe")
+                return message.reply("Yes, you guessed it and gave Karlsruhe a point!!!")
 
             } else {
                 guessing.guessed = false;
-                return message.reply("Ups, you don't have a team")
+                return message.reply("Ups, you don't have a team!")
             }
+
+        } else {
+            message.reply("Unfortunately wrong!")
         }
     },
 };

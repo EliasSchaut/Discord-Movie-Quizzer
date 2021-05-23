@@ -10,6 +10,6 @@ module.exports = {
     restricted: false,
     execute(message, args) {
         const out = `**Score:**\nKarlsruhe: ${score.Karlsruhe} points\nMannheim: ${score.Mannheim} points`
-        message.send(out);
+        message.channel.send(out);
     },
 };

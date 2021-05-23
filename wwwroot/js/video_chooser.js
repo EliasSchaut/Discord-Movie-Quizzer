@@ -14,7 +14,6 @@ function init() {
         videos.solutions.push(source.split("_")[1].split(".")[0])
     }
     videos.num_of_files = videos.sources.length
-    videos.progress = -1 // TODO: GET
     videos.initiated = true
 
     console.log(videos)
@@ -23,23 +22,18 @@ function init() {
 function get_next_video_path() {
     if (videos.initiated === false) return -3;
 
-    videos.progress++;
-    if (videos.progress >= videos.num_of_files) {
-        return -2
-    }
+    videos.progress++
+    if (videos.progress >= videos.num_of_files) return -2
+    if (videos.progress < 0) return -1;
+    post_progress(get_sol())
 
     return get_video_path()
 }
 
-function get_solution() {
-    if (videos.progress < 0) return -1;
-    else if (videos.progress >= videos.num_of_files) return -2;
-
-    return videos.solutions[videos.progress]
+let get_video_path = function () {
+    return videos.sources[videos.progress]
 }
 
-let get_video_path = function () {
-    if (videos.progress < 0) return -1;
-
-    return videos.sources[videos.progress]
+let get_sol = function () {
+    return videos.solutions[videos.progress]
 }
