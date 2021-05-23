@@ -8,7 +8,7 @@ const href = window.location.href;
 // GET
 // -------------------------------------
 
-// GET-Button
+// GET Button
 get.addEventListener("click", function() {
     const http = new XMLHttpRequest()
     http.open("GET", href + "GET/")
@@ -19,6 +19,24 @@ get.addEventListener("click", function() {
     }
     http.send()
 })
+
+// GET guessed-user
+function get_guessed_user() {
+    const http = new XMLHttpRequest()
+    http.open("GET", href + "GET/guessed-user")
+    http.onreadystatechange = function () {
+        if (http.readyState === 4) {
+            console.log(http.responseText)
+            if (http.responseText !== "") {
+                guessed = true
+                show_solution(http.responseText)
+                set_next_round_button()
+                stop_guessed_timer()
+            }
+        }
+    }
+    http.send()
+}
 // -------------------------------------
 
 
@@ -83,5 +101,24 @@ function post_reset() {
 // -------------------------------------
 // HELPER
 // -------------------------------------
+let timerID
+
+function start_guessed_timer() {
+    stop_guessed_timer()
+
+    timerID = setInterval(function () {
+        get_guessed_user()
+
+    }, 1000)
+}
+
+function stop_guessed_timer() {
+    try {
+        clearInterval(timerID)
+    } catch (e) {
+        console.log("LOL, :P")
+    }
+
+}
 
 // -------------------------------------

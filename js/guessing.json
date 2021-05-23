@@ -2,6 +2,8 @@
   "started": false,
   "ended": false,
   "guessed": true,
+  "guessed_user": "",
+  "guessed_team": "",
   "fail": false,
   "solution": ""
 }

@@ -4,6 +4,7 @@ const video_e = document.getElementById("video")
 const video_sol = document.getElementById("video-solution")
 const sol = "Solution: "
 let first_time = true
+let guessed = false
 
 
 // -------------------------------------
@@ -15,19 +16,24 @@ start.addEventListener("click", function () {
         first_time = false
     }
 
+    guessed = false
     set_visuals_off()
     if(!set_next_video()) {
         end_quiz()
         return
     }
+    start_guessed_timer()
     set_visuals_on()
     video_e.play()
 })
 
 video_e.addEventListener("ended", function () {
-    post_fail()
-    show_solution()
-    set_next_round_button()
+    if (!guessed) {
+        post_fail()
+        show_solution("")
+        set_next_round_button()
+        stop_guessed_timer()
+    }
 })
 // -------------------------------------
 
@@ -74,8 +80,8 @@ let set_visuals_on = function () {
     video_c.setAttribute("class", "visible")
 }
 
-let show_solution = function () {
-    video_sol.innerHTML = sol + videos.solutions[videos.progress]
+let show_solution = function (guessed_info) {
+    video_sol.innerHTML = `${sol} ${videos.solutions[videos.progress]}${guessed_info}`
 }
 
 let set_next_round_button = function () {

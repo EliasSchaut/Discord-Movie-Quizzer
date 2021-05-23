@@ -33,6 +33,15 @@ app.get('/GET/cecho/', function (req, res) {
         res.send("GET received")
     }
 })
+
+// GET guessed-user
+app.get('/GET/guessed-user/', function (req, res) {
+    if (guessing.guessed) {
+        res.send(` (${guessing.guessed_user} aus dem Team ${guessing.guessed_team})`)
+    } else {
+        res.send("")
+    }
+})
 // -----------------------------------
 
 

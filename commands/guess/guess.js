@@ -32,15 +32,18 @@ module.exports = {
         // check answer
         const to_check = args.join(" ").toLowerCase()
         if (hammingDistance(to_check, guessing.solution.toLowerCase()) <= 2) {
-            guessing.guessed = true;
+            guessing.guessed = true
+            guessing.guessed_user = message.author.username
             const member = message.guild.members.cache.get(message.author.id)
 
             if (member.roles.cache.has(role_ids.Mannheim)) {
                 score.add_point("Mannheim")
+                guessing.guessed_team = "Mannheim"
                 return message.reply(":white_check_mark: Yes, you guessed it and gave Mannheim a point!!!")
 
             } else if (member.roles.cache.has(role_ids.Karlsruhe)) {
                 score.add_point("Karlsruhe")
+                guessing.guessed_team = "Karlsruhe"
                 return message.reply(":white_check_mark: Yes, you guessed it and gave Karlsruhe a point!!!")
 
             } else {
