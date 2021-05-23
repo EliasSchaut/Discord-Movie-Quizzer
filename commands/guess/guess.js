@@ -13,15 +13,21 @@ module.exports = {
     restricted: false,
     execute(message, args) {
         // TODO: THREAD and TYPO
-        if (guessing.solution === "") {
+
+        // Fail Cases
+        if (!guessing.started) {
             return message.reply("Game haven't started jet!")
         }
-
+        if (guessing.ended) {
+            return message.reply("Game has ended!")
+        }
         if (guessing.guessed) {
             return message.reply("The correct answer was already given!")
         }
 
-        if (args[0].toLowerCase() === guessing.solution.toLowerCase()) {
+        // check answer
+        const to_check = args.join(" ").toLowerCase()
+        if (hammingDistance(to_check, guessing.solution.toLowerCase()) <= 2) {
             guessing.guessed = true;
             const member = message.guild.members.cache.get(message.author.id)
 
@@ -40,6 +46,20 @@ module.exports = {
 
         } else {
             message.reply("Unfortunately wrong!")
+        }
+
+
+        // Helper
+        function hammingDistance(str1, str2) {
+            let dist = 0;
+            str1 = str1.toLowerCase();
+            str2 = str2.toLowerCase();
+            for (let i = 0, j = Math.max(str1.length, str2.length); i < j; i++) {
+                if (!str1[i] || !str2[i] || str1[i] !== str2[i]) {
+                    dist++;
+                }
+            }
+            return dist;
         }
     },
 };
