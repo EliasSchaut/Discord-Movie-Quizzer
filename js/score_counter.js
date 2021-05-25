@@ -1,17 +1,20 @@
-const score = {
-    "Karlsruhe": 0,
-    "Mannheim": 0
+const { teams } = require('../config/config.json')
+
+let score = []
+
+function add_point(team_index) {
+    score[team_index]++;
 }
 
-function add_point(team_name) {
-    score[team_name]++;
+function get_points(team_index) {
+    return score[team_index]
 }
 
 function reset() {
-    score.Karlsruhe = 0
-    score.Mannheim = 0
+    score = new Array(teams.length).fill(0);
+    console.log(score)
 }
 
-module.exports = { score, add_point, reset }
+module.exports = {  add_point, get_points, reset }
 
 

@@ -4,8 +4,14 @@
   "commands_path": "./commands",
   "lang": "en",
   "admin_ids": [ ],
-  "role_ids": {
-    "Karlsruhe": "",
-    "Mannheim": ""
-  }
+  "teams": [
+    {
+      "name": "TEAM_1",
+      "role_id": ""
+    },
+    {
+      "name": "TEAM_2",
+      "role_id": ""
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-const { role_ids } = require('../../config/config.json')
+const { teams } = require('../../config/config.json')
 const guessing = require('../../js/guessing.json')
 const score = require('../../js/score_counter.js')
 
@@ -36,20 +36,19 @@ module.exports = {
             guessing.guessed_user = message.author.username
             const member = message.guild.members.cache.get(message.author.id)
 
-            if (member.roles.cache.has(role_ids.Mannheim)) {
-                score.add_point("Mannheim")
-                guessing.guessed_team = "Mannheim"
-                return message.reply(":white_check_mark: Yes, you guessed it and gave Mannheim a point!!!")
-
-            } else if (member.roles.cache.has(role_ids.Karlsruhe)) {
-                score.add_point("Karlsruhe")
-                guessing.guessed_team = "Karlsruhe"
-                return message.reply(":white_check_mark: Yes, you guessed it and gave Karlsruhe a point!!!")
-
-            } else {
-                guessing.guessed = false;
-                return message.reply(":x: Ups, you don't have a team!")
+            // search team of member
+            for (let i = 0; i < teams.length; i++) {
+                if (member.roles.cache.has(teams[i].id)) {
+                    score.add_point(i)
+                    guessing.guessed_team = teams[i].name
+                    return message.reply(`:white_check_mark: Yes, you guessed it and gave ${teams[i].name} a point!!!`)
+                }
             }
+
+            // else (member has no team)
+            guessing.guessed = false;
+            return message.reply(":x: Ups, you don't have a team!")
+
 
         } else {
             message.reply(":x: Unfortunately wrong!")

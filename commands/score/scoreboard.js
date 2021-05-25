@@ -1,15 +1,20 @@
-const { score } = require('../../js/score_counter')
+const score = require('../../js/score_counter')
+const { teams } = require('../../config/config.json')
 
 module.exports = {
     name: 'scoreboard',
     description: "Sends the score",
-    aliases: ['score', 'points'],
+    aliases: ['score', 'points', 's'],
     args: false,
     guildOnly: false,
     dmOnly: false,
     restricted: false,
     execute(message, args) {
-        const out = `**Score:**\nKarlsruhe: ${score.Karlsruhe} points\nMannheim: ${score.Mannheim} points`
+        let out = `**Score:**`
+        for (let i = 0; i < teams.length; i++) {
+            out += `\n${teams[i].name}: ${score.get_points(i)} points`
+        }
+
         message.channel.send(out);
     },
 };

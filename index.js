@@ -7,7 +7,9 @@ const Discord = require('discord.js');
 // require the config.json and text.js module
 const config = require('./config/config.json');
 const text = require(`./config/text_${config.lang}.json`).index;
+const chooser = require('./js/score_counter')
 const prefix = config.prefix;
+chooser.reset();
 
 // create a new Discord client
 const client = new Discord.Client();
