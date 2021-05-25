@@ -110,7 +110,7 @@ dist
 /config/config.json
 
 # videos
-/wwwroot/res/video/paths-template.js
+/wwwroot/res/video/paths.js
 *.mp4
 *.webm
 *.ogg
