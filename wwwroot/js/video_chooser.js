@@ -8,14 +8,16 @@ const videos = {
 }
 
 function init_chooser() {
+    console.log(paths)
+
     for (let i = 0; i < paths.length; i++) {
-        videos.sources = path + paths[i]
+        videos.sources.push(path + paths[i])
     }
     if (shuffle) {
         videos.sources = videos.sources.sort(() => Math.random() - 0.5)
     }
     for (let i = 0; i < paths.length; i++) {
-        videos.solutions.push(videos.sources[i].split(".")[0])
+        videos.solutions.push(videos.sources[i].split("/")[2].split(".")[0])
     }
 
     videos.num_of_files = videos.sources.length

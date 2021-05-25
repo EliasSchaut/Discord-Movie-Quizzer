@@ -3,3 +3,5 @@ const paths = [
     "SOLUTION2.mp4",
     "SOLUTION3.mp4"
 ]
+
+const shuffle = false
