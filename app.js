@@ -5,7 +5,7 @@ const guessing = require('./js/guessing.json')
 const score = require("./js/score_counter")
 const config = require("./config/config.json")
 const app = express()
-const port = 8080;
+const port = config.port;
 app.use(express.static('wwwroot'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());

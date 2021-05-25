@@ -5,8 +5,8 @@
   "lang": "en",
   "admin_ids": [ ],
 
-  "shuffle_videos": false,
   "website_only": false,
+  "port": "8080",
   "teams": [
     {
       "name": "TEAM_1",
