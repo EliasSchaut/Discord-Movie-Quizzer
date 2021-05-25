@@ -3,16 +3,14 @@ const videos = {
     "initiated" : false,
     "progress": -1,
     "num_of_files": -1,
-    "sources": [
-        "00_easter.mp4",
-        "01_easter2.mp4"
-    ],
+    "sources": [],
     "solutions": []
 }
 
 function init_chooser() {
-    for (const source of videos.sources) {
-        videos.solutions.push(source.split("_")[1].split(".")[0])
+    for (let i = 0; i < paths.length; i++) {
+        videos.sources = path + paths[i]
+        videos.solutions.push(videos.sources[i].split("_")[1].split(".")[0])
     }
     videos.num_of_files = videos.sources.length
     videos.initiated = true
