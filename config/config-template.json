@@ -10,11 +10,11 @@
   "teams": [
     {
       "name": "TEAM_1",
-      "role_id": "DISCORD_ROLE_ID"
+      "id": "DISCORD_ROLE_ID"
     },
     {
       "name": "TEAM_2",
-      "role_id": "DISCORD_ROLE_ID"
+      "id": "DISCORD_ROLE_ID"
     }
   ]
 }
