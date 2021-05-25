@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cecho = require("./commands/test/cecho.js")
 const guessing = require('./js/guessing.json')
 const score = require("./js/score_counter")
+const config = require("./config/config.json")
 const app = express()
 const port = 8080;
 app.use(express.static('wwwroot'))

@@ -4,14 +4,17 @@
   "commands_path": "./commands",
   "lang": "en",
   "admin_ids": [ ],
+
+  "shuffle_videos": false,
+  "website_only": false,
   "teams": [
     {
       "name": "TEAM_1",
-      "role_id": ""
+      "role_id": "DISCORD_ROLE_ID"
     },
     {
       "name": "TEAM_2",
-      "role_id": ""
+      "role_id": "DISCORD_ROLE_ID"
     }
   ]
 }

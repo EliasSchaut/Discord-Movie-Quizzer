@@ -1,22 +1,21 @@
+const path = "res/video/"
 const videos = {
     "initiated" : false,
     "progress": -1,
     "num_of_files": -1,
     "sources": [
-        "res/video/0_easter.mp4",
-        "res/video/1_easter2.mp4"
+        "00_easter.mp4",
+        "01_easter2.mp4"
     ],
     "solutions": []
 }
 
-function init() {
+function init_chooser() {
     for (const source of videos.sources) {
         videos.solutions.push(source.split("_")[1].split(".")[0])
     }
     videos.num_of_files = videos.sources.length
     videos.initiated = true
-
-    console.log(videos)
 }
 
 function get_next_video_path() {

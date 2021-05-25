@@ -12,7 +12,6 @@ function get_points(team_index) {
 
 function reset() {
     score = new Array(teams.length).fill(0);
-    console.log(score)
 }
 
 module.exports = {  add_point, get_points, reset }

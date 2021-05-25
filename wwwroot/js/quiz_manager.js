@@ -5,6 +5,7 @@ const video_sol = document.getElementById("video-solution")
 const sol = "Solution: "
 let first_time = true
 let guessed = false
+init_chooser()
 
 
 // -------------------------------------
@@ -43,10 +44,6 @@ video_e.addEventListener("ended", function () {
 // Set-Visuals
 // -------------------------------------
 let set_next_video = function () {
-    // get next_video_path
-    if (!videos.initiated) {
-        init()
-    }
     const next_video_path = get_next_video_path()
     if (next_video_path < 0) {
         if (next_video_path === -2) {
