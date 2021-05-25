@@ -109,5 +109,7 @@ dist
 # config
 /config/config.json
 
-# resources
+# videos
 *.mp4
+*.webm
+*.ogg
