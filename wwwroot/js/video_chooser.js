@@ -10,8 +10,14 @@ const videos = {
 function init_chooser() {
     for (let i = 0; i < paths.length; i++) {
         videos.sources = path + paths[i]
-        videos.solutions.push(videos.sources[i].split("_")[1].split(".")[0])
     }
+    if (shuffle) {
+        videos.sources = videos.sources.sort(() => Math.random() - 0.5)
+    }
+    for (let i = 0; i < paths.length; i++) {
+        videos.solutions.push(videos.sources[i].split(".")[0])
+    }
+
     videos.num_of_files = videos.sources.length
     videos.initiated = true
 }
