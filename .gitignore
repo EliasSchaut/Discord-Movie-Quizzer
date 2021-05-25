@@ -110,7 +110,7 @@ dist
 /config/config.json
 
 # videos
-!somefolder/.gitkeep
+/wwwroot/res/video/paths-template.json
 *.mp4
 *.webm
 *.ogg
