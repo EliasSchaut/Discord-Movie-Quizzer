@@ -39,7 +39,7 @@ The Discord Bot can run the following commands (and more like `help` and stuff):
      In this case you don't need to fill anything else in `config.json`.
 3. Rename the video path file *(/wwwroot/res/video/paths-template.js)* from `paths-template.js` to `paths.js`
 4. Insert the videos for the quiz the following:
-   * Name the video file like this: `[solution].[mp4/ogg/webm]` and save it into `/wwwroot/res/video/`
+   * Name the video file like this: `[solution].[mp4/ogg/webm]` and save it into `/wwwroot/res/video/`. Replace the spaces with `-`!
    * The videos have to be `.mp4`, `.ogg` or `.webm` files
    * Insert the video names in the `paths.js` file in the list `paths`
    * **OPTIONAL**: set `shuffle` to `true` in the `paths.js` file if you want to randomise the video order
