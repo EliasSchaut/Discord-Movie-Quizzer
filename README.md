@@ -33,7 +33,7 @@ The Discord Bot can run the following commands (and more like `help` and stuff):
      These are the only users who have the permission to execute the restricted commands `reload` and `cecho`
    * Add teams by editing the team key with the following format:
      ```{ "name": "TEAM_NAME", "id": "DISCORD_ROLE_ID" }```
-   * **OPTIONAL**: change `lang` from "en" to "de" for german instead of english language (bot only (soon))
+   * **OPTIONAL**: change `lang` from "en" to "de" for german instead of english language (bot only)
    * **OPTIONAL**: change `port` to change the website port.
    * **OPTIONAL**: change `webside-only` to `true` if you only want to use the website and not the bot. 
      In this case you don't need to fill anything else in `config.json`.
