@@ -45,6 +45,21 @@
       "invalid_command": "There is no command with this name or alias",
       "success": "was reloaded!",
       "fail": "There was an error while reloading a command"
+    },
+    "guess": {
+      "not_started": ":x: Game haven't started jet!",
+      "ended": ":x: Game has ended!",
+      "guessed": ":x: The correct answer was already given!",
+      "fail": ":x: The correct answer was already shown. This round every team failed!",
+      "no_team": ":x: Ups, you don't have a team!",
+      "wrong": ":x: Unfortunately wrong!",
+      "correct_1": ":white_check_mark: Yes, you guessed it and gave",
+      "correct_2": "a point!!!"
+    },
+    "score": {
+      "score": "**Score:**",
+      "points": "points",
+      "point": "point"
     }
   }
 }

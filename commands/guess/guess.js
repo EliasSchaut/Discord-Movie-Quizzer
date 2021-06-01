@@ -1,4 +1,5 @@
-const { teams } = require('../../config/config.json')
+const { teams, lang } = require('../../config/config.json')
+const text = require(`../../config/text_${lang}.json`).commands.guess
 const guessing = require('../../js/guessing.json')
 const score = require('../../js/score_counter.js')
 
@@ -13,20 +14,18 @@ module.exports = {
     dmOnly: false,
     restricted: false,
     execute(message, args) {
-        // TODO: THREAD_LOCK
-
         // Fail Cases
         if (!guessing.started) {
-            return message.reply(":x: Game haven't started jet!")
+            return message.reply(text.not_started)
         }
         if (guessing.ended) {
-            return message.reply(":x: Game has ended!")
+            return message.reply(text.ended)
         }
         if (guessing.guessed) {
-            return message.reply(":x: The correct answer was already given!")
+            return message.reply(text.guessed)
         }
         if (guessing.fail) {
-            return message.reply(":x: The correct answer was already shown. This round every team failed!")
+            return message.reply(text.fail)
         }
 
         // check answer
@@ -41,17 +40,17 @@ module.exports = {
                 if (member.roles.cache.has(teams[i].id)) {
                     score.add_point(i)
                     guessing.guessed_team = teams[i].name
-                    return message.reply(`:white_check_mark: Yes, you guessed it and gave ${teams[i].name} a point!!!`)
+                    return message.reply(`${text.correct_1} ${teams[i].name} ${text.correct_2}`)
                 }
             }
 
             // else (member has no team)
             guessing.guessed = false;
-            return message.reply(":x: Ups, you don't have a team!")
+            return message.reply(text.no_team)
 
 
         } else {
-            message.reply(":x: Unfortunately wrong!")
+            message.reply(text.wrong)
         }
 
 

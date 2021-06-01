@@ -45,6 +45,21 @@
       "invalid_command": "Es gibt keinen Befehl mit diesem Namen oder Alias",
       "success": "wurde neu geladen!",
       "fail": "Es gab einen Fehler beim Nachladen des Befehls"
+    },
+    "guess": {
+      "not_started": ":x: Das Spiel hat noch nicht begonnen!",
+      "ended": ":x: Das Spiel ist beendet!",
+      "guessed": ":x: Die richtige Antwort wurde bereits gegeben!",
+      "fail": ":x: Die richtige Antwort wurde bereits angezeigt. In dieser Runde ist jedes Team durchgefallen!",
+      "no_team": ":x: Ups, du hast kein Team!",
+      "wrong": ":x: Leider falsch!",
+      "correct_1": ":white_check_mark: Ja, du hast es erraten und gibst",
+      "correct_2": "einen Punkt!!!"
+    },
+    "score": {
+      "score": "**Punktzahl:**",
+      "points": "Punkte",
+      "point": "Punkt"
     }
   }
 }

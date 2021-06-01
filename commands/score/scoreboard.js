@@ -1,5 +1,6 @@
 const score = require('../../js/score_counter')
-const { teams } = require('../../config/config.json')
+const { teams, lang } = require('../../config/config.json')
+const text = require(`../../config/text_${lang}.json`).commands.score
 
 module.exports = {
     name: 'scoreboard',
@@ -10,9 +11,16 @@ module.exports = {
     dmOnly: false,
     restricted: false,
     execute(message, args) {
-        let out = `**Score:**`
+        let out = text.score
         for (let i = 0; i < teams.length; i++) {
-            out += `\n${teams[i].name}: ${score.get_points(i)} points`
+            const team_points = score.get_points(i)
+            out += `\n${teams[i].name}: ${team_points}`
+
+            if (team_points === 1) {
+                out += " " + text.points
+            } else {
+                out += " " + text.point
+            }
         }
 
         message.channel.send(out);
