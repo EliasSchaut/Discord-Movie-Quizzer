@@ -117,7 +117,5 @@ function stop_guessed_timer() {
     } catch (e) {
         console.log("LOL, :P")
     }
-
 }
-
 // -------------------------------------

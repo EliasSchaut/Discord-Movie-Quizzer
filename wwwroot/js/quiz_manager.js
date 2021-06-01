@@ -11,10 +11,13 @@ init_chooser()
 // -------------------------------------
 // EventListener
 // -------------------------------------
-start.addEventListener("click", function () {
+start.addEventListener("click", async function () {
     if (first_time) {
         post_start()
         first_time = false
+
+    } else {
+        stop_guessed_timer()
     }
 
     guessed = false
@@ -23,9 +26,11 @@ start.addEventListener("click", function () {
         end_quiz()
         return
     }
-    start_guessed_timer()
+
+    await video_e.load()
     set_visuals_on()
-    video_e.play()
+    await video_e.play()
+    start_guessed_timer()
 })
 
 video_e.addEventListener("ended", function () {
@@ -54,7 +59,7 @@ let set_next_video = function () {
         return 0
     }
     console.log("Next: " + next_video_path)
-    video.setAttribute("src", next_video_path)
+    video_e.setAttribute("src", next_video_path)
     return 1
 }
 
@@ -87,6 +92,7 @@ let set_next_round_button = function () {
 }
 
 let end_quiz = function () {
+    video_e.pause()
     post_end()
     start.children[0].innerHTML = "Quiz Ended"
     start.children[0].setAttribute("class", "visible")

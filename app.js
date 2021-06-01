@@ -5,21 +5,14 @@ const guessing = require('./js/guessing.json')
 const score = require("./js/score_counter")
 const config = require("./config/config.json")
 const app = express()
-const port = config.port;
-app.use(express.static('wwwroot'))
+const port = config.port
+app.use(express.static(__dirname + '\\wwwroot\\'))
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json());
-
+app.use(bodyParser.json())
 
 // -----------------------------------
 // GET
 // -----------------------------------
-
-// get index.html
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/wwwroot/')
-})
-
 // get received
 app.get('/GET/', function (req, res) {
     res.send("GET received")
@@ -62,24 +55,28 @@ app.post('/POST/solution/', function (req, res ) {
     guessing.guessed = false
     guessing.fail = false
     console.log("POST solution: " + req.body.solution)
+    res.send()
 })
 
 // post fail
 app.post('/POST/fail/', function (req, res ) {
     guessing.fail = true
     console.log("POST Fail!")
+    res.send()
 })
 
 // post start
 app.post('/POST/start/', function (req, res ) {
     guessing.started = true
     console.log("POST Start")
+    res.send()
 })
 
 // post end
 app.post('/POST/end/', function (req, res ) {
     guessing.ended = true
     console.log("POST End!")
+    res.send()
 })
 
 // post reset
@@ -90,6 +87,7 @@ app.post('/POST/reset/', function (req, res ) {
     guessing.guessed = true
     score.reset()
     console.log("POST Reset!")
+    res.send()
 })
 // -----------------------------------
 
