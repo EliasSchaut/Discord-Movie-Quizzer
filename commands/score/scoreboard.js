@@ -17,9 +17,9 @@ module.exports = {
             out += `\n${teams[i].name}: ${team_points}`
 
             if (team_points === 1) {
-                out += " " + text.points
-            } else {
                 out += " " + text.point
+            } else {
+                out += " " + text.points
             }
         }
 
